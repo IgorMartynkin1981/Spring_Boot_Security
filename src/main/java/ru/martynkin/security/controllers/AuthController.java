@@ -13,7 +13,7 @@ import ru.martynkin.security.requestFormat.LoginRequest;
 import ru.martynkin.security.requestFormat.SignupRequest;
 import ru.martynkin.security.responseFormats.JwtResponse;
 import ru.martynkin.security.responseFormats.MessageResponse;
-import ru.martynkin.security.security.JwtUtils;
+import ru.martynkin.security.security.jwt.JwtUtils;
 import ru.martynkin.security.security.UserDetailsImpl;
 
 @CrossOrigin(origins = "*", maxAge = 3600)

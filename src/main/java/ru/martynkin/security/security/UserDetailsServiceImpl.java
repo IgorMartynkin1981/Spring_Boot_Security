@@ -1,7 +1,5 @@
 package ru.martynkin.security.security;
 
-import jakarta.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,6 +8,11 @@ import org.springframework.stereotype.Service;
 import ru.martynkin.security.data.UserRepository;
 import ru.martynkin.security.entity.User;
 
+import javax.transaction.Transactional;
+
+/**
+ * Important points : UserDetailsService comes from spring security core library
+ */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
