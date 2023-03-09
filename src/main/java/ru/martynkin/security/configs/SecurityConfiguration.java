@@ -24,6 +24,7 @@ public class SecurityConfiguration {
         http
                 .authorizeRequests()
                 .antMatchers("/admin/**").authenticated()
+                .antMatchers("/pageAdminRole/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .and()

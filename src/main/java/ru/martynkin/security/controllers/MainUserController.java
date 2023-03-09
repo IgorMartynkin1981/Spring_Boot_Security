@@ -17,4 +17,9 @@ public class MainUserController {
     public String adminPage(Principal principal) {
         return "adminPage, user: " + principal.getName();
     }
+
+    @GetMapping("/pageAdminRole")
+    public String pageAdminRole(Principal principal) {
+        return "pageAdminRole, user: " + principal.getName();
+    }
 }
