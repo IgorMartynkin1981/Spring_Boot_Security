@@ -25,10 +25,6 @@ public class MainUserController {
         return "homePage";
     }
 
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
     @GetMapping("/admin")
     public String adminPage(Principal principal) {
         User user = userService.findByUsername(principal.getName());
