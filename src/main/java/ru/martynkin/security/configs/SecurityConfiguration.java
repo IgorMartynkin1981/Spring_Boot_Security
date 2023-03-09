@@ -38,7 +38,7 @@ public class SecurityConfiguration {
                 .roles("USER")
                 .build();
         UserDetails admin = User.builder()
-                .username("user")
+                .username("admin")
                 //пароль password
                 .password("{bcrypt}$2a$12$tHyc4gCrOkcQz5DLGLHz1.U3xV7YQDchnsoPwJ2n0TsT12mqiw/Bi")
                 .roles("ADMIN", "USER")
