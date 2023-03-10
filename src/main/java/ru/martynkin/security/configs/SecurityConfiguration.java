@@ -13,7 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
  * In-Memory Authentication
  */
 
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 public class SecurityConfiguration {
 
     @Bean
