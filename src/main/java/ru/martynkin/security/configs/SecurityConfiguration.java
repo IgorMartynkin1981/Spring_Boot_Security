@@ -11,10 +11,10 @@ import org.springframework.security.web.SecurityFilterChain;
 import ru.martynkin.security.services.UserService;
 
 /**
- * DAO Authentication
+ * DTO DAO Authentication
  */
 
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity
 public class SecurityConfiguration {
 
     private UserService userService;
@@ -27,9 +27,15 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
+                .httpBasic().disable()
                 .authorizeRequests()
+                .antMatchers("/**").permitAll()
+                .antMatchers("/adminka/**").permitAll()
+//                .antMatchers("/adminka/signup").permitAll()
                 .antMatchers("/admin/**").authenticated()
-                .antMatchers("/pageAdminRole/**").hasRole("ADMIN")
+//                .antMatchers("/pageAdminRole/**").hasRole("ADMIN")
+//                //.anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .and()
