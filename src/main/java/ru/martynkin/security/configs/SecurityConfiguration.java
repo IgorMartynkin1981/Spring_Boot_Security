@@ -10,7 +10,7 @@ import org.springframework.security.web.SecurityFilterChain;
  * Default Authentication
  */
 
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 public class SecurityConfiguration {
 
     @Bean
