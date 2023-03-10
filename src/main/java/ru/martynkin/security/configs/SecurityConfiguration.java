@@ -14,7 +14,7 @@ import ru.martynkin.security.services.UserService;
  * DAO Authentication
  */
 
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 public class SecurityConfiguration {
 
     private UserService userService;
