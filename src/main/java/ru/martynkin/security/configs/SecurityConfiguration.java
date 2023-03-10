@@ -16,7 +16,7 @@ import javax.sql.DataSource;
  * JDBC Authentication
  */
 
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 public class SecurityConfiguration {
 
     @Bean
