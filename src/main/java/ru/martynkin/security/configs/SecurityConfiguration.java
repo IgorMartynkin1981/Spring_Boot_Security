@@ -2,6 +2,7 @@ package ru.martynkin.security.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -14,6 +15,7 @@ import ru.martynkin.security.services.UserService;
  * DTO DAO Authentication
  */
 
+@Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
 
@@ -27,19 +29,13 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
-                .httpBasic().disable()
-                .authorizeRequests()
-                .antMatchers("/**").permitAll()
-                .antMatchers("/adminka/**").permitAll()
-//                .antMatchers("/adminka/signup").permitAll()
-                .antMatchers("/admin/**").authenticated()
-//                .antMatchers("/pageAdminRole/**").hasRole("ADMIN")
-//                //.anyRequest().authenticated()
-                .and()
+                .authorizeHttpRequests(s -> s
+                .requestMatchers("/**", "/adminka/**", "/adminka/signup").permitAll()
+                .requestMatchers("/admin/**").authenticated()
+                .requestMatchers("/pageAdminRole/**").hasAuthority("ROLE_ADMIN"))
                 .formLogin()
                 .and()
-                .logout().logoutSuccessUrl("/");
+                .logout();
 
         return http.build();
     }

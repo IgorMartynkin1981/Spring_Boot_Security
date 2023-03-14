@@ -1,8 +1,7 @@
 package ru.martynkin.security.entity;
 
+import jakarta.persistence.*;
 import lombok.Data;
-
-import javax.persistence.*;
 
 /**
  * Simple domain object that represents application roles

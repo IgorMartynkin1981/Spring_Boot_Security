@@ -1,5 +1,6 @@
 package ru.martynkin.security.services;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,7 +12,6 @@ import ru.martynkin.security.entity.Role;
 import ru.martynkin.security.entity.User;
 import ru.martynkin.security.repositories.UserRepository;
 
-import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
